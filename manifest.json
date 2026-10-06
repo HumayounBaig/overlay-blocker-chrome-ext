@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "ClearView Overlay Control",
+  "version": "1.0.0",
+  "description": "Reduce or remove dark video overlays and hide distracting player UI.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ClearView Overlay Control"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+:root {
+  --clearview-remaining: 1;
+}
+
+[data-clearview-pseudo~="before"]::before,
+[data-clearview-pseudo~="after"]::after {
+  opacity: var(--clearview-remaining) !important;
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClearView</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">◐</div>
+        <div>
+          <h1>ClearView</h1>
+          <p id="site">Current site</p>
+        </div>
+        <label class="switch" title="Enable on this site">
+          <input id="enabled" type="checkbox" />
+          <span></span>
+        </label>
+      </header>
+
+      <section>
+        <div class="label-row">
+          <label for="reduction">Dark overlay reduction</label>
+          <output id="reductionValue" for="reduction">100%</output>
+        </div>
+        <input id="reduction" type="range" min="0" max="100" step="5" value="100" />
+        <div class="range-labels"><span>Original</span><span>Remove</span></div>
+      </section>
+
+      <section class="actions">
+        <button id="scan" type="button">Rescan overlays</button>
+        <button id="picker" type="button">Pick UI to hide</button>
+      </section>
+
+      <section class="status-card">
+        <span id="statusDot"></span>
+        <p id="status">Ready</p>
+      </section>
+
+      <button id="reset" class="text-button" type="button">Reset hidden elements for this site</button>
+      <p class="hint">Tip: start video playback before rescanning. Press Esc to cancel the picker.</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
