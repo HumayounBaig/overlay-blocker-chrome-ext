@@ -2,6 +2,8 @@
 
 A dependency-free Chrome extension that reduces dark scrims placed over streaming video. It also includes a visual picker for hiding player controls or other distracting UI on a per-site basis.
 
+Write-up: [Removing a streaming overlay without blacking out the video](https://dev.to/humayounbaig/removing-a-streaming-overlay-without-blacking-out-the-video-21im)
+
 ## Features
 
 - Detects dark, video-sized overlays without hard-coding a single streaming service
