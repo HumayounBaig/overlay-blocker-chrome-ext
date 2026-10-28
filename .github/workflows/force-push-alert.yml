@@ -1,0 +1,28 @@
+name: force-push-alert
+# Free-plan substitute for branch protection: fails loudly (GitHub emails the pusher) when history is rewritten.
+on:
+  push:
+    branches: ['**']
+permissions:
+  contents: read
+jobs:
+  detect:
+    if: github.event.forced == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report history rewrite
+        env:
+          ACTOR: ${{ github.actor }}
+          REF: ${{ github.ref }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+        run: |
+          echo "::error title=Force-push detected::$ACTOR rewrote $REF ($BEFORE -> $AFTER). If this was not you, rotate your GitHub credentials and scan your machine."
+          {
+            echo "### Force-push detected"
+            echo "- actor: $ACTOR"
+            echo "- ref: $REF"
+            echo "- before: $BEFORE"
+            echo "- after: $AFTER"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
